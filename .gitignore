@@ -9,6 +9,12 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+.idea
+.idea/workspace.xml
+/.idea
 
 # Used by dotenv library to load environment variables.
 # .env

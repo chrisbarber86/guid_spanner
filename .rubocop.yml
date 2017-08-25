@@ -1,0 +1,161 @@
+# Up to date as of v0.49.1
+# See https://github.com/robkilby/styleguides for original.
+# If a cop is not referenced here, the defaults from Rubocop will be used.
+
+AllCops:
+  Exclude:
+    - '**/tmp/**/*'
+
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  UseCache: true
+  MaxFilesInCache: 50000
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 4.2
+
+# Always use alias_method when aliasing methods of modules, classes, or singleton classes at runtime, as the lexical
+# scope of alias leads to unpredictability in these cases.
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+# Checks for cases when you could use a block accepting version of a method that does automatic resource cleanup.
+#
+#   # bad
+#   f = File.open('file')
+#
+#   # good
+#   f = File.open('file') do
+#     ...
+#   end
+Style/AutoResourceCleanup:
+  Enabled: true
+
+# Checks if usage of %() or %Q() matches configuration.
+#
+# EnforcedStyle: percent_q - enforces use of %Q().
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+# Checks the style of children definitions at classes and modules. Basically there are two different styles:
+#
+# EnforcedStyle:
+#   nested - have each child on its own line
+#     class Foo
+#       class Bar
+#       end
+#     end
+#
+# compact (allowed for specs only) - combine definitions as much as possible
+#   class Foo::Bar
+#   end
+Style/ClassAndModuleChildren:
+  Exclude:
+    - '**/spec/**/*'
+
+# Mapping from undesired method to desired method e.g. to use `detect` over `find`.
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'detect'
+    find_all: 'select'
+
+# This cop checks for missing top-level documentation of classes and modules. Classes with no body are exempt from the
+# check and so are namespace modules - modules that have nothing in their bodies except classes, other modules, or
+# constant definitions.
+#
+# The documentation requirement is annulled if the class or module has a "#:nodoc:" comment next to it. Likewise,
+# "#:nodoc: all" does the same for all its children.
+Style/Documentation:
+  Exclude:
+    - '**/spec/**/*'
+
+# Warn on empty else statements
+#
+# EnforcedStyle: empty - only return an error for a completely empty else clause as sometimes it may be necessary to
+# return `nil` from an else branch.
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+# Checks for the formatting of empty method definitions.
+#
+# EnforcedStyle: expanded - only return an error if the end is on the same line as the def.
+#
+# bad
+# def foo(bar); end
+#
+# good
+# def foo(bar)
+# end
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+  Exclude:
+    - '**/spec/**/*'
+
+# Checks whether the source file has a utf-8 encoding comment or not.
+#
+# EnforcedStyle: when_needed - checks the contents of the file before issuing an error.
+Style/Encoding:
+  Enabled: true
+  EnforcedStyle: when_needed
+
+# Checks for if and unless statements that would fit on one line if written as a modifier if/unless.
+#
+# Triggers an warning for if/unless statements that would be under 120 characters.
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+#################### Metrics ################################
+
+# Checks that the ABC size of methods is not higher than the configured maximum. The ABC size is based on assignments,
+# branches (method calls), and conditions. See http://c2.com/cgi/wiki?AbcMetric.
+Metrics/AbcSize:
+  Max: 22
+
+# This cop checks if the length of a block exceeds some maximum value. Ignores comment-only lines.
+Metrics/BlockLength:
+  Exclude:
+    - '**/routes.rb'
+    - '**/config/initializers/**/*.rb'
+    - '**/config/environments/**/*.rb'
+    - '**/spec/**/*'
+    - '**/*.gemspec'
+
+# Checks if the length a class exceeds some maximum value. Ignores comment-only lines.
+Metrics/ClassLength:
+  Max: 150
+
+# Checks that the cyclomatic complexity of methods is not higher than the configured maximum. The cyclomatic complexity
+# is the number of linearly independent paths through a method. The algorithm counts decision points and adds one.
+#
+# An if statement (or unless or ?:) increases the complexity by one. An else branch does not, since it doesn't add a
+# decision point. The && operator (or keyword and) can be converted to a nested if statement, and ||/or is shorthand for
+# a sequence of ifs, so they also add one. Loops can be said to have an exit condition, so they add one.
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# Checks the length of lines in the source code.
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - '**/Gemfile'
+
+# Checks if the length of a method exceeds some maximum value. Ignores comment-only lines.
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - '**/spec/**/*'
+
+# Checks if the length of a module exceeds some maximum value. Ignores comment-only lines.
+Metrics/ModuleLength:
+  Max: 100
+
+# Tries to produce a complexity score that's a measure of the complexity the reader experiences when looking at a
+# method. For that reason it considers `when` nodes as something that doesn't add as much complexity as an `if` or a
+# `&&`. Except if it's one of those special `case`/`when` constructs where there's no expression after `case`. Then
+# the cop treats it as an `if`/`elsif`/`elsif`... and lets all the `when` nodes count. In contrast to
+# CyclomaticComplexity, it considers `else` nodes as adding complexity.
+Metrics/PerceivedComplexity:
+  Max: 7
