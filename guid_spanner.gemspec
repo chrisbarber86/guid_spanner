@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.test_files = ['spec/guid_spec.rb']
   s.homepage = 'http://rubygems.org/gems/guid_spanner'
   s.require_paths = ['lib']
-  s.rubygems_version = '2.3.0'
+  s.rubygems_version = '2.3.4'
   s.summary = 'Guid Spanner!'
 
   s.add_development_dependency 'bundler', '~> 1.11'
