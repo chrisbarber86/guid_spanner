@@ -1,13 +1,12 @@
 language: ruby
 rvm:
-  - 2.3.4
-
+- 2.3.4
 cache: bundler
-
 deploy:
   provider: rubygems
   api_key:
-    secure: "MYeZCI8j2iLvGb26A+aLoIZKg/cnVf/eVwJ1BKIt8e9vBz+FccjSOxASuJ+oJrlEcFNme8x/SEt6HA8//ID3m1DaOj6GK+Zj3fZYI2vVwJ3vIUDfqugdW4hkXTPixbdUf2hpISxfHRxeA3+1JFIjGPdJI8bcJOf7bbB5F/VsbRbIkaTQsj8EhpUsn3PpsV2qvP8CrRPTzU0Q3X4PVRTnaeV/bF8WCenmGsBNgEALjgR/gut2vogAP3j1zLIzxMw86gSxcexraPhYaT6pVnopjLFtJG6xHbv+R27ZKGlh3yx01ird7Frd1BGYD+Lh7Wsj1TxmTW3c2SGRHHJzZE6sgdVJqbAgccLOLsnQ4jVUYbdGxsptErwlAnD76SUM5L89sn6mq+RkljDenZ/aMvc8yu49atuTwsb73Ab1vwvfxFZw64Wv7zTDz6Ljn3TnGNIk1zqF7PrtSouAGrt0RpgMQwZmekppjMcKrr52xKoMtz0ImBD5ggqah52iajS6MlsG4fmPIlN6458SF36XabJzSv1Kih/8e9PpXANudrI91juMaIkEEQmCQSheVjXx9UleINgIF0/XVchK11BF0+iqAjZFHsaiSY7iaTr3oiv8FwQ1MQZeQdQ4b04qqzmJZz27dSm+Egp5cS+jN2iuC94SfDy54JmZaN/MRjWlCvPTX4g="
+    secure: hBvJmGAW7EyztpN/eqqaL+cVZaTrKKvnZpjr9psR/QuQXPT/ytVvpHMcc/AGvRTv3w41GurF/yrl36O/F2VctEb0nVxVw16RZMrbA2Ax8bkeJgK730icSRLfohB6/4KZPQSq6MR1MrLby4YzOqSw3SENZiETSOgpdrH9dz+3ycz/bn7YGXU8tkGUpewNfACX3ojmI9WiRwAvBL2qjjbx2cVunUeB1u6E7RCV4ZiO1Z1frPzDdl/NvA0Ia0a38oqOtkQPr80ApkvjWTRnoR6ctfgQKAxPigleqn2/mwhUtLjjEU03SGy9cwE/5ATgRudS0BU1j2B+wofX+kTsIM582x/RTCMxIQHHbJ0zRk0GpKxQ28SbqgyFoDCQba+Z4H1kvVIAKf5khs9efmzWDwLZ5tBzLXgp3Y4qW0VbOJMy9oNWgGH7TJ+cEaGy83iTStQHjQs5Ey85jMDF/T5+alrJT/w6AZMJO6wOEqlaJkBD8ORbw5H1gDFPefVQclz/Dt/G9yoiuRMaGCVnKrtlah9p/+DJz6X4l6NFSVxeDkalk55kpL4Kc/j+5z0KudhpZ81RmcJnmZdq1nK7YYfpRnQtFy1Arsmh6ZypEZeDukfLFgS2vjRGlJlj63Iikrl6m7G+b1h0o3ca2x8mtTdUpRDnA8trTO+uUxi5iQAda+ZvSes=
+  gem: guid_spanner
   on:
     tags: true
     condition: "$TRAVIS_RUBY_VERSION == 2.3.4"
