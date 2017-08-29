@@ -1,4 +1,7 @@
 # guid_spanner
+
+[![Travis Status](https://travis-ci.org/Sage/guid_spanner.svg?branch=master)](https://travis-ci.org/Sage/guid_spanner)
+
 Packs and unpacks 32(compact) and 36 charactor GUIDs
 
 # Install
@@ -26,3 +29,9 @@ Raises
 GuidSpanner::Exceptions::InvalidUuidFormatError
 ``` 
 if an incorrectly formatted GUID is provided for packing or unpacking
+
+## Licence
+
+Guid Spanner is licensed under the [Apache-2.0 licence](https://github.com/Sage/guid_spanner/blob/master/LICENSE).
+
+Copyright (c) 2017 Sage Group Plc. All rights reserved.
