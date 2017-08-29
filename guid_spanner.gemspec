@@ -26,11 +26,9 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.authors = ['Nigel Surtees']
-  s.date = '2017-08-25'
   s.description = 'A collection of utilities for uuid manipulation'
   s.email = 'nigel.surtees@sage.com'
-  s.files = ['Rakefile', 'lib/guid_spanner.rb', 'lib/guid_spanner/guid.rb.rb']
-  s.test_files = ['spec/guid_spec.rb']
+  s.files = Dir.glob("{bin,lib}/**/**/**")
   s.homepage = 'http://rubygems.org/gems/guid_spanner'
   s.require_paths = ['lib']
   s.rubygems_version = '2.3.4'
