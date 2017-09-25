@@ -20,7 +20,7 @@ module GuidSpanner
 
     class << self
       def valid_32?(guid_str)
-        guid_str =~ /\A\h{8}(\h{4}){3}\h{12}\z/
+        guid_str =~ /\A\h{32}\z/
       end
 
       def valid_36?(guid_str)
