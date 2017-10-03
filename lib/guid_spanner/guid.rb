@@ -20,13 +20,11 @@ module GuidSpanner
 
     class << self
       def valid_32?(guid_str)
-        res = guid_str =~ /^([0-9A-Fa-f]{8}[0-9A-Fa-f]{4}[0-9A-Fa-f]{4}[0-9A-Fa-f]{4}[0-9A-Fa-f]{12})$/
-        res ? true : false
+        guid_str =~ /\A\h{32}\z/
       end
 
       def valid_36?(guid_str)
-        res = guid_str =~ /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/
-        res ? true : false
+        guid_str =~ /\A\h{8}(-\h{4}){3}-\h{12}\z/
       end
     end
   end
