@@ -1,7 +1,8 @@
 # guid_spanner
 
 [![Travis Status](https://travis-ci.org/Sage/guid_spanner.svg?branch=master)](https://travis-ci.org/Sage/guid_spanner)
-[![Code Climate](https://codeclimate.com/github/Sage/guid_spanner.png)](https://codeclimate.com/github/Sage/guid_spanner)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8d12a8e1ea18edf6297c/maintainability)](https://codeclimate.com/github/Sage/guid_spanner/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/8d12a8e1ea18edf6297c/test_coverage)](https://codeclimate.com/github/Sage/guid_spanner/test_coverage)
 [![Gem Version](https://badge.fury.io/rb/guid_spanner.png)](http://badge.fury.io/rb/guid_spanner)
 
 Packs and unpacks 32(compact) and 36 charactor GUIDs
