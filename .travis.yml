@@ -10,3 +10,13 @@ deploy:
   on:
     tags: true
     condition: "$TRAVIS_RUBY_VERSION == 2.3.4"
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
+after_script:
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+env:
+  global:
+    secure: Rp2hkwHkNj2XRZMIYmOURJg2kGIVHxUqi1E8bLWaLF2pSPYXJ5UVMWAF9eoygUiJfh3Zy0vpGvkS2Uvh4CCL4rhWGqJ7sgCtq87q3ia589wvAePPrY8XrBsw2ZxCT+z+1E1YUZhojXZsl7YMIimLImgfz2yzrufddqUu5G2qhnHEEmJ7wpUs8M5hDwgNeBHrgY+YpPblg1O6I6m4eW3za/f4g/eAXuZcVQDtj9KGNkxOy5dxwZ3kcglXUu8U4Nf4osgJLAsUPgokeWxNHqS2PfUkR93lgK+wNHd4pNkVwq8Bh38moPYbsC+ZEh8wcGDRzPZUJNMYKCDVk/7haguV/KrF43xlczPhsT/iybBoiu4zwx3GsTS0xM/YgTfCxKA0f1kAM/CP+X56ccK0UMZ7BdAOa3PKhBVksK6ulL6WtajRL+wApl8RMCys31P4SUOS3amzT2ynWYv3JFWtp+0U8ZRoedeUMXbR+B403VrOQkAOUrO7omzztXyDNlsXey56w3E9EkTzwacXcaLhiBRBdz4Z7eaX9rfwGMLrQsWspNubqHsQjJkzEgi6kBbOXKR28Kq9rH6gzHzkVfHAzThWF9Jv8e6Lgfu+y0zoQXVRAY58wk8TIK6duzszHOEmkIy+3PumBhqurkYxOzjMz/5SkfK2o5d8ZZcPWoA0E1lYnnA=
