@@ -1,37 +1,18 @@
 # frozen_string_literal: true
-
-version = ''
-if ENV['TRAVIS_TAG'] != nil
-  puts "CI Branch - '#{ENV['TRAVIS_TAG']}'"
-  version = ENV['TRAVIS_TAG']
-end
-
-#if the tag version starts with v (e.g. vx.x.x)
-if version.downcase.match /^v/
-  #trim the v and set the version to x.x.x
-  version = version.dup
-  version.slice!(0)
-elsif ENV['TRAVIS_TAG'] != nil && ENV['TRAVIS_TAG'] != ''
-  #allow none release tags to build alpha, beta, dev versions of the gem.
-  version = "0.0.0.#{ENV['TRAVIS_TAG']}"
-else
-  #otherwise it is not a valid release tag so set the version 0.0.0 as it not being released.
-  version = '0.0.0'
-end
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'guid_spanner/version'
 
 Gem::Specification.new do |s|
   s.name = 'guid_spanner'
-  s.version = version
-  s.default_executable = 'guid_spanner'
+  s.version = GuidSpanner::VERSION
 
-  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.authors = ['Nigel Surtees']
   s.description = 'A collection of utilities for uuid manipulation'
   s.email = 'nigel.surtees@sage.com'
   s.files = Dir.glob("{bin,lib}/**/**/**")
   s.homepage = 'http://rubygems.org/gems/guid_spanner'
   s.require_paths = ['lib']
-  s.rubygems_version = '2.3.4'
   s.summary = 'Guid Spanner!'
 
   s.add_development_dependency 'bundler', '~> 1.11'
