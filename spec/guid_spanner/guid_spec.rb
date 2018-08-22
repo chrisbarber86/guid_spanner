@@ -86,4 +86,27 @@ RSpec.describe GuidSpanner::Guid do
       end
     end
   end
+
+  describe 'round robin conversions' do
+    context 'when a 32 char guid is converted to binary and back to 36 char guid' do
+      it 'expects the correct 36 char guid to be returned' do
+        guid_bin = guid_spanner.str_to_bin(valid_32_uuid)
+        expect(guid_spanner.bin_to_str(guid_bin)).to eq unpacked_32_uuid
+      end
+    end
+
+    context 'when a 36 char guid is converted to binary and back to 36 char guid' do
+      it 'expects the original 36 char guid to be returned' do
+        guid_bin = guid_spanner.str_to_bin(valid_36_uuid)
+        expect(guid_spanner.bin_to_str(guid_bin)).to eq valid_36_uuid
+      end
+    end
+
+    context 'when a binary guid is converted to string and back to binary' do
+      it 'expects the original binary guid to be returned' do
+        guid_str = guid_spanner.bin_to_str(binary_32_uuid)
+        expect(guid_spanner.str_to_bin(guid_str)).to eq binary_32_uuid
+      end
+    end
+  end
 end

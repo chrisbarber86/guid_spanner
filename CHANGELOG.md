@@ -2,4 +2,11 @@
 
 ### Changes
 
-  * [S1T-1321](https://jira-sage.valiantyscloud.net/browse/S1T-1321) - Add methods for string to binary conversion (and vice versa)
+  * Add methods for string to binary conversion (and vice versa)
+
+
+## Version v0.0.3
+
+### Changes
+
+  * Initial release (v0.0.1 and v0.0.2 were removed as part of Travis/RubyGems setup)
